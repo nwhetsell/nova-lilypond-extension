@@ -1,0 +1,3 @@
+[submodule "tree-sitter-lilypond"]
+	path = tree-sitter-lilypond
+	url = https://github.com/nwhetsell/tree-sitter-lilypond.git

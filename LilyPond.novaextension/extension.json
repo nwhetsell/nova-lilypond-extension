@@ -1,0 +1,21 @@
+{
+    "identifier": "nathan_whetsell.LilyPond",
+    "name": "LilyPond",
+    "author": "Nathan Whetsell",
+    "description": "LilyPond language support.",
+    "version": "0.1",
+    "categories": ["issues", "languages"],
+    "license": "MIT",
+    "repository": "https://github.com/nwhetsell/nova-lilypond-extension",
+    "bugs": "https://github.com/nwhetsell/nova-lilypond-extension/issues",
+
+    "main": "main.js",
+
+    "activationEvents": [
+        "onLanguage:lilypond"
+    ],
+
+    "entitlements": {
+        "process": true
+    }
+}

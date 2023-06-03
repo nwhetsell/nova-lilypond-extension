@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="lilypond_scheme" subsyntax="true">
+    <meta>
+        <name>LilyPond Scheme</name>
+        <type>script</type>
+    </meta>
+
+    <indentation>
+        <increase>
+            <expression>\($</expression>
+        </increase>
+        <decrease>
+            <expression>^\s*\)</expression>
+        </decrease>
+    </indentation>
+
+    <comments>
+        <single>
+            <expression>;</expression>
+        </single>
+        <multiline>
+            <starts-with>
+                <expression>#|</expression>
+            </starts-with>
+            <ends-with>
+                <expression>|#</expression>
+            </ends-with>
+        </multiline>
+    </comments>
+
+    <brackets>
+        <pair open="(" close=")" />
+    </brackets>
+
+    <surrounding-pairs>
+        <pair open="(" close=")" />
+        <pair open='"' close='"' />
+    </surrounding-pairs>
+
+    <tree-sitter language="lilypond_scheme">
+        <highlights path="scheme-lilypond-built-in-highlights.scm" />
+        <highlights path="scheme-built-in-highlights.scm" />
+        <highlights path="scheme-highlights.scm" />
+        <injections path="scheme-injections.scm" />
+        <folds path="scheme-folds.scm" />
+    </tree-sitter>
+</syntax>

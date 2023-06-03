@@ -1,0 +1,997 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<completions>
+    <provider name="lilypond.built-in-music-functions">
+        <syntax>lilypond</syntax>
+        <exclude-selector>string, comment</exclude-selector>
+        <trigger>\</trigger>
+        <expression>(?&lt;=\\)[A-Za-z_-]*</expression>
+        <set>lilypond.built-in-music-functions</set>
+    </provider>
+
+    <set name="lilypond.built-in-music-functions" symbol="function">
+        <completion string="absolute">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Make ⟨music⟩ absolute. This does not actually change the music itself but rather hides it from surrounding `\relative` and `\fixed` commands.</description>
+        </completion>
+        <completion string="acciaccatura">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Create an acciaccatura from the following music expression</description>
+        </completion>
+        <completion string="accidentalStyle">
+            <behavior>
+                <append> $[style]</append>
+            </behavior>
+            <description>Set accidental style to symbol list ⟨style⟩ in the form `piano-cautionary`. If ⟨style⟩ has a form like `Staff.piano-cautionary`, the settings are applied to that context. Otherwise, the context defaults to `Staff`, except for piano styles, which use `GrandStaff` as a context.</description>
+        </completion>
+        <completion string="addChordShape">
+            <behavior>
+                <append> $[key-symbol] $[tuning] $[shape-definition]</append>
+            </behavior>
+            <description>Add chord shape ⟨shape-definition⟩ to the `chord-shape-table` hash with the key `(cons ⟨key-symbol⟩ ⟨tuning⟩)`.</description>
+        </completion>
+        <completion string="addInstrumentDefinition">
+            <behavior deprecated="true">
+                <append> $[name] $[lst]</append>
+            </behavior>
+            <description>Create instrument ⟨name⟩ with properties ⟨list⟩. This function is deprecated.</description>
+        </completion>
+        <completion string="addQuote">
+            <behavior>
+                <append> $[name] $[music]</append>
+            </behavior>
+            <description>Define ⟨music⟩ as a quotable music expression named ⟨name⟩</description>
+        </completion>
+        <completion string="after">
+            <behavior>
+                <append> $[delta] $[ev] $[mus]</append>
+            </behavior>
+            <description>Add music ⟨ev⟩ (usually a post-event) with a delay of ⟨delta⟩ after the onset of ⟨mus⟩.</description>
+        </completion>
+        <completion string="afterGrace">
+            <behavior>
+                <append> $[fraction] $[main] $[grace]</append>
+            </behavior>
+            <description>Create ⟨grace⟩ note(s) after a ⟨main⟩ music expression. The musical position of the grace expression is after a given fraction of the main note’s duration has passed. If ⟨fraction⟩ is not specified as first argument, it is taken from `afterGraceFraction` which has a default value of `3/4`.</description>
+        </completion>
+        <completion string="allowPageTurn">
+            <description>Allow a page turn. May be used at toplevel (ie between scores or markups), or inside a score.</description>
+        </completion>
+        <completion string="allowVoltaHook">
+            <behavior>
+                <append> $[bar]</append>
+            </behavior>
+            <description>Allow the volta bracket hook being drawn over bar line ⟨bar⟩.</description>
+        </completion>
+        <completion string="alterBroken">
+            <behavior>
+                <append> $[property] $[arg] $[target]</append>
+            </behavior>
+            <description>Override ⟨property⟩ for pieces of broken spanner ⟨target⟩ with values ⟨arg⟩. ⟨target⟩ may either be music in the form of a starting spanner event, or a symbol list in the form `Context.Grob` or just `Grob`. Iff ⟨target⟩ is in the form of a spanner event, ⟨property⟩ may also have the form `Grob.property` for specifying a directed tweak.</description>
+        </completion>
+        <completion string="ambitusAfter">
+            <behavior>
+                <append> $[target]</append>
+            </behavior>
+            <description>Move the ambitus after the break-align symbol ⟨target⟩.</description>
+        </completion>
+        <completion string="appendToTag">
+            <behavior>
+                <append> $[tag] $[more] $[music]</append>
+            </behavior>
+            <description>Append ⟨more⟩ to the back of music tagged with ⟨tag⟩. A `post-event` can be added to the articulations of rhythmic events or chords; other expressions may be added to chords, sequential or simultaneous music.</description>
+        </completion>
+        <completion string="applyContext">
+            <behavior>
+                <append> $[proc]</append>
+            </behavior>
+            <description>Modify context properties with Scheme procedure ⟨proc⟩.</description>
+        </completion>
+        <completion string="applyMusic">
+            <behavior>
+                <append> $[func] $[music]</append>
+            </behavior>
+            <description>Apply procedure ⟨func⟩ to ⟨music⟩.</description>
+        </completion>
+        <completion string="applyOutput">
+            <behavior>
+                <append> $[target] $[proc]</append>
+            </behavior>
+            <description>Apply function `proc` to every layout object matched by ⟨target⟩ which takes the form `Context` or `Context.Grob`.</description>
+        </completion>
+        <completion string="appoggiatura">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Create an appoggiatura from ⟨music⟩</description>
+        </completion>
+        <completion string="assertBeamQuant">
+            <behavior>
+                <append> $[l] $[r]</append>
+            </behavior>
+            <description>Testing function: check whether the beam quants ⟨l⟩ and ⟨r⟩ are correct</description>
+        </completion>
+        <completion string="assertBeamSlope">
+            <behavior>
+                <append> $[comp]</append>
+            </behavior>
+            <description>Testing function: check whether the slope of the beam is the same as `comp`</description>
+        </completion>
+        <completion string="augmentum">
+            <behavior>
+                <append> $[expr]</append>
+            </behavior>
+        </completion>
+        <completion string="autoChange">
+            <behavior>
+                <append> $[pitch] $[clef-1] $[clef-2] $[music]</append>
+            </behavior>
+            <description>Make voices that switch between staves automatically. As an option the pitch where to switch staves may be specified. The clefs for the staves are optional as well. Setting clefs works only for implicitly instantiated staves.</description>
+        </completion>
+        <completion string="balloonGrobText">
+            <behavior>
+                <append> $[grob-name] $[offset] $[text]</append>
+            </behavior>
+            <description>Attach ⟨text⟩ to ⟨grob-name⟩ at offset ⟨offset⟩ (use like `\once`)</description>
+        </completion>
+        <completion string="balloonText">
+            <behavior>
+                <append> $[offset] $[text]</append>
+            </behavior>
+            <description>Attach ⟨text⟩ at ⟨offset⟩ (use like `\tweak`)</description>
+        </completion>
+        <completion string="bar">
+            <behavior>
+                <append> $[type]</append>
+            </behavior>
+            <description>Insert a bar line of type ⟨type⟩, overriding any automatic bar lines.</description>
+        </completion>
+        <completion string="barNumberCheck">
+            <behavior>
+                <append> $[n]</append>
+            </behavior>
+            <description>Print a warning if the current bar number is not ⟨n⟩.</description>
+        </completion>
+        <completion string="beamExceptions">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Extract a value suitable for setting `Timing.beamExceptions` from the given pattern with explicit beams in ⟨music⟩. A bar check `|` has to be used between bars of patterns in order to reset the timing.</description>
+        </completion>
+        <completion string="bendAfter">
+            <behavior>
+                <append> $[delta]</append>
+            </behavior>
+            <description>Create a fall or doit of pitch interval ⟨delta⟩.</description>
+        </completion>
+        <completion string="bendHold">
+            <behavior>
+                <append> $[mus]</append>
+            </behavior>
+            <description>Sets the `'style` of a `BendSpanner` to `'hold`.</description>
+        </completion>
+        <completion string="bendStartLevel">
+            <behavior>
+                <append> $[idx] $[mus]</append>
+            </behavior>
+            <description>Sets the `details.successive-level` of a `BendSpanner` to ⟨idx⟩.</description>
+        </completion>
+        <completion string="bookOutputName">
+            <behavior>
+                <append> $[newfilename]</append>
+            </behavior>
+            <description>Direct output for the current book block to ⟨newfilename⟩.</description>
+        </completion>
+        <completion string="bookOutputSuffix">
+            <behavior>
+                <append> $[newsuffix]</append>
+            </behavior>
+            <description>Set the output filename suffix for the current book block to ⟨newsuffix⟩.</description>
+        </completion>
+        <completion string="breathe">
+            <description>Insert a breath mark.</description>
+        </completion>
+        <completion string="caesura">
+            <description>Insert a caesura.</description>
+        </completion>
+        <completion string="chordRepeats">
+            <behavior>
+                <append> $[event-types] $[music]</append>
+            </behavior>
+            <description>Walk through ⟨music⟩ putting the notes of the previous chord into repeat chords, as well as an optional list of ⟨event-types⟩ such as `#'(string-number-event)`.</description>
+        </completion>
+        <completion string="clef">
+            <behavior>
+                <append> $[type]</append>
+            </behavior>
+            <description>Set the current clef to ⟨type⟩.</description>
+        </completion>
+        <completion string="codaMark">
+            <behavior>
+                <append> $[num]</append>
+            </behavior>
+            <description>Create a coda mark. ⟨num⟩ may be 1 for the first mark, 2 for the second, etc., or it may be `\default` to use the next number in sequence automatically.</description>
+        </completion>
+        <completion string="compoundMeter">
+            <behavior>
+                <append> $[args]</append>
+            </behavior>
+            <description>Create compound time signatures. The argument is a Scheme list of lists. Each list describes one fraction, with the last entry being the denominator, while the first entries describe the summands in the enumerator. If the time signature consists of just one fraction, the list can be given directly, i.e. not as a list containing a single list. For example, a time signature of (3+1)/8 + 2/4 would be created as `\compoundMeter #'((3 1 8) (2 4))`, and a time signature of (3+2)/8 as `\compoundMeter #'((3 2 8))` or shorter `\compoundMeter #'(3 2 8)`.</description>
+        </completion>
+        <completion string="compressMMRests">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Remove the empty bars created by multi-measure rests, leaving just the first bar containing the MM rest itself.</description>
+        </completion>
+        <completion string="crossStaff">
+            <behavior>
+                <append> $[notes]</append>
+            </behavior>
+            <description>Create cross-staff stems</description>
+        </completion>
+        <completion string="cueClef">
+            <behavior>
+                <append> $[type]</append>
+            </behavior>
+            <description>Set the current cue clef to ⟨type⟩.</description>
+        </completion>
+        <completion string="cueClefUnset">
+            <description>Unset the current cue clef.</description>
+        </completion>
+        <completion string="cueDuring">
+            <behavior>
+                <append> $[what] $[dir] $[main-music]</append>
+            </behavior>
+            <description>Insert contents of quote ⟨what⟩ corresponding to ⟨main-music⟩, in a CueVoice oriented by ⟨dir⟩.</description>
+        </completion>
+        <completion string="cueDuringWithClef">
+            <behavior>
+                <append> $[what] $[dir] $[clef] $[main-music]</append>
+            </behavior>
+            <description>Insert contents of quote ⟨what⟩ corresponding to ⟨main-music⟩, in a CueVoice oriented by ⟨dir⟩.</description>
+        </completion>
+        <completion string="deadNote">
+            <behavior>
+                <append> $[note]</append>
+            </behavior>
+            <description>Print ⟨note⟩ with a cross-shaped note head.</description>
+        </completion>
+        <completion string="defineBarLine">
+            <behavior>
+                <append> $[bar] $[glyph-list]</append>
+            </behavior>
+            <description>Define bar line settings for bar line ⟨bar⟩. The list ⟨glyph-list⟩ must have three entries which define substitute glyphs for the end of a line, the beginning of a line, and a span bar, respectively. The substitute glyphs may be either strings or booleans: `#t` calls for the same value as ⟨bar⟩ and `#f` calls for no glyph.</description>
+        </completion>
+        <completion string="displayLilyMusic">
+            <behavior>
+                <append> $[port] $[music]</append>
+            </behavior>
+            <description>Display the LilyPond input representation of ⟨music⟩ to ⟨port⟩, defaulting to the console.</description>
+        </completion>
+        <completion string="displayMusic">
+            <behavior>
+                <append> $[port] $[music]</append>
+            </behavior>
+            <description>Display the internal representation of ⟨music⟩ to ⟨port⟩, default to the console.</description>
+        </completion>
+        <completion string="displayScheme">
+            <behavior>
+                <append> $[port] $[expr]</append>
+            </behavior>
+            <description>Display the internal representation of ⟨expr⟩ to ⟨port⟩, default to the console.</description>
+        </completion>
+        <completion string="dropNote">
+            <behavior>
+                <append> $[num] $[music]</append>
+            </behavior>
+            <description>Drop a note of any chords in ⟨music⟩, in ⟨num⟩ position from above.</description>
+        </completion>
+        <completion string="enablePolymeter">
+            <description>For use within an output definition. Enables polymetry, moving timing management from `Score` to `Staff`-like contexts. This is done by removing the `Timing_/translator` from `Score`, and adding it to all contexts having the `Staff` alias.</description>
+        </completion>
+        <completion string="endSpanners">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Terminate the next spanner prematurely after exactly one note without the need of a specific end spanner.</description>
+        </completion>
+        <completion string="eventChords">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Compatibility function wrapping `EventChord` around isolated rhythmic events occuring since version 2.15.28, after expanding repeat chords `q`.</description>
+        </completion>
+        <completion string="featherDurations">
+            <behavior>
+                <append> $[scale] $[argument]</append>
+            </behavior>
+            <description>Adjust durations of music in ⟨argument⟩ by ⟨scale⟩.</description>
+        </completion>
+        <completion string="finger">
+            <behavior>
+                <append> $[finger]</append>
+            </behavior>
+            <description>Apply ⟨finger⟩ as a fingering indication.</description>
+        </completion>
+        <completion string="fixed">
+            <behavior>
+                <append> $[pitch] $[music]</append>
+            </behavior>
+            <description>Use the octave of ⟨pitch⟩ as the default octave for ⟨music⟩.</description>
+        </completion>
+        <completion string="footnote">
+            <behavior>
+                <append> $[mark] $[offset] $[footnote] $[item]</append>
+            </behavior>
+            <description>Make the markup ⟨footnote⟩ a footnote on ⟨item⟩. The footnote is marked with a markup ⟨mark⟩ moved by ⟨offset⟩ with respect to the marked music. If ⟨mark⟩ is not given or specified as `\default`, it is replaced by an automatically generated sequence number. If ⟨item⟩ is a symbol list of form `⟨Grob⟩` or `⟨Context.Grob⟩`, then grobs of that type will be marked at the current time step in the given context (default `Bottom`). If ⟨item⟩ is music, the music will get a footnote attached to a grob immediately attached to the event, like `\tweak` does. For attaching a footnote to an <emph>indirectly</emph> caused grob, write `\single\footnote`, use ⟨item⟩ to specify the grob, and follow it with the music to annotate. Like with `\tweak`, if you use a footnote on a following post-event, the `\footnote` command itself needs to be attached to the preceding note or rest as a post-event with `-`.</description>
+        </completion>
+        <completion string="grace">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Insert ⟨music⟩ as grace notes.</description>
+        </completion>
+        <completion string="grobdescriptions">
+            <behavior>
+                <append> $[descriptions]</append>
+            </behavior>
+            <description>Create a context modification from ⟨descriptions⟩, a list in the format of `all-grob-descriptions`.</description>
+        </completion>
+        <completion string="harmonicByFret">
+            <behavior>
+                <append> $[fret] $[music]</append>
+            </behavior>
+            <description>Convert ⟨music⟩ into mixed harmonics; the resulting notes resemble harmonics played on a fretted instrument by touching the strings at ⟨fret⟩.</description>
+        </completion>
+        <completion string="harmonicByRatio">
+            <behavior>
+                <append> $[ratio] $[music]</append>
+            </behavior>
+            <description>Convert ⟨music⟩ into mixed harmonics; the resulting notes resemble harmonics played on a fretted instrument by touching the strings at the point given through ⟨ratio⟩.</description>
+        </completion>
+        <completion string="harmonicNote">
+            <behavior>
+                <append> $[note]</append>
+            </behavior>
+            <description>Print ⟨note⟩ with a diamond-shaped note head.</description>
+        </completion>
+        <completion string="harmonicsOn">
+            <description>Set the default note head style to a diamond-shaped style.</description>
+        </completion>
+        <completion string="hide">
+            <behavior>
+                <append> $[item]</append>
+            </behavior>
+            <description>Set ⟨item⟩’s `transparent` property to `#t`, making it invisible while still retaining its dimensions. If ⟨item⟩ is a symbol list of form `GrobName` or `Context.GrobName`, the result is an override for the grob name specified by it. If ⟨item⟩ is a music expression, the result is the same music expression with an appropriate tweak applied to it.</description>
+        </completion>
+        <completion string="incipit">
+            <behavior>
+                <append> $[incipit-music]</append>
+            </behavior>
+            <description>Output ⟨incipit-music⟩ before the main staff as an indication of its appearance in the original music.</description>
+        </completion>
+        <completion string="inherit-acceptability">
+            <behavior>
+                <append> $[to] $[from]</append>
+            </behavior>
+            <description>When used in an output definition, will modify all context definitions such that context ⟨to⟩ is accepted as a child by all contexts that also accept ⟨from⟩.</description>
+        </completion>
+        <completion string="inStaffSegno">
+            <description>Put the segno variant ’varsegno’ at this position into the staff, compatible with the repeat command.</description>
+        </completion>
+        <completion string="instrumentSwitch">
+            <behavior deprecated="true">
+                <append> $[name]</append>
+            </behavior>
+            <description>Switch instrument to ⟨name⟩, which must have been predefined with function `\addInstrumentDefinition`. This function is deprecated.</description>
+        </completion>
+        <completion string="inversion">
+            <behavior>
+                <append> $[around] $[to] $[music]</append>
+            </behavior>
+            <description>Invert ⟨music⟩ about ⟨around⟩ and transpose from ⟨around⟩ to ⟨to⟩.</description>
+        </completion>
+        <completion string="invertChords">
+            <behavior>
+                <append> $[num] $[music]</append>
+            </behavior>
+            <description>Invert any chords in ⟨music⟩ into their ⟨num⟩-th position. (Chord inversions may be directed downwards using negative integers.)</description>
+        </completion>
+        <completion string="jump">
+            <behavior>
+                <append> $[text]</append>
+            </behavior>
+            <description>Mark a point of departure, e.g. .</description>
+        </completion>
+        <completion string="keepWithTag">
+            <behavior>
+                <append> $[tags] $[music]</append>
+            </behavior>
+            <description>Include only elements of ⟨music⟩ that are tagged with one of the tags in ⟨tags⟩. ⟨tags⟩ may be either a single symbol or a list of symbols. Each tag may be declared as a member of at most one tag group (defined with `\tagGroup`). If none of a ⟨music⟩ element’s tags share a tag group with one of the specified ⟨tags⟩, the element is retained.</description>
+        </completion>
+        <completion string="key">
+            <behavior>
+                <append> $[tonic] $[pitch-alist]</append>
+            </behavior>
+            <description>Set key to ⟨tonic⟩ and scale ⟨pitch-alist⟩. If both are null, just generate `KeyChangeEvent`.</description>
+        </completion>
+        <completion string="killCues">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Remove cue notes from ⟨music⟩.</description>
+        </completion>
+        <completion string="label">
+            <behavior>
+                <append> $[label]</append>
+            </behavior>
+            <description>Create ⟨label⟩ as a referrable label.</description>
+        </completion>
+        <completion string="language">
+            <behavior>
+                <append> $[language]</append>
+            </behavior>
+            <description>Set note names for language ⟨language⟩.</description>
+        </completion>
+        <completion string="languageRestore">
+            <description>Restore a previously-saved pitchnames alist.</description>
+        </completion>
+        <completion string="languageSaveAndChange">
+            <behavior>
+                <append> $[language]</append>
+            </behavior>
+            <description>Store the previous pitchnames alist, and set a new one.</description>
+        </completion>
+        <completion string="ligature">
+            <behavior>
+                <append> $[location]</append>
+            </behavior>
+        </completion>
+        <completion string="magnifyMusic">
+            <behavior>
+                <append> $[mag] $[music]</append>
+            </behavior>
+            <description>Magnify the notation of ⟨music⟩ without changing the staff-size, using ⟨mag⟩ as a size factor. Stems, beams, slurs, ties, and horizontal spacing are adjusted automatically.</description>
+        </completion>
+        <completion string="magnifyStaff">
+            <behavior>
+                <append> $[mag]</append>
+            </behavior>
+            <description>Change the size of the staff, adjusting notation size and horizontal spacing automatically, using ⟨mag⟩ as a size factor.</description>
+        </completion>
+        <completion string="makeClusters">
+            <behavior>
+                <append> $[arg]</append>
+            </behavior>
+            <description>Display chords in ⟨arg⟩ as clusters.</description>
+        </completion>
+        <completion string="makeDefaultStringTuning">
+            <behavior>
+                <append> $[symbol] $[pitches]</append>
+            </behavior>
+            <description>This defines a string tuning ⟨symbol⟩ via a list of ⟨pitches⟩. The ⟨symbol⟩ also gets registered in `defaultStringTunings` for documentation purposes.</description>
+        </completion>
+        <completion string="mark">
+            <behavior>
+                <append> $[label]</append>
+            </behavior>
+            <description>Create a rehearsal mark. If ⟨label⟩ is an integer, create the rehearsal mark for the given sequence number. If ⟨label⟩ is `\default`, create the next sequential rehearsal mark. If ⟨label⟩ is markup, use it for the mark.</description>
+        </completion>
+        <completion string="markupMap">
+            <behavior>
+                <append> $[path] $[markupfun] $[music]</append>
+            </behavior>
+            <description>This applies the given markup function ⟨markupfun⟩ to all markup music properties matching ⟨path⟩ in ⟨music⟩. For example, `\new Voice { g'2 c'' } \addlyrics { \markupMap LyricEvent.text \markup \with-color #red \etc { Oh yes! } }`</description>
+        </completion>
+        <completion string="modalInversion">
+            <behavior>
+                <append> $[around] $[to] $[scale] $[music]</append>
+            </behavior>
+            <description>Invert ⟨music⟩ about ⟨around⟩ using ⟨scale⟩ and transpose from ⟨around⟩ to ⟨to⟩.</description>
+        </completion>
+        <completion string="modalTranspose">
+            <behavior>
+                <append> $[from] $[to] $[scale] $[music]</append>
+            </behavior>
+            <description>Transpose ⟨music⟩ from pitch ⟨from⟩ to pitch ⟨to⟩ using ⟨scale⟩.</description>
+        </completion>
+        <completion string="musicLength">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Return the length of ⟨music⟩ as a moment.</description>
+        </completion>
+        <completion string="musicMap">
+            <behavior>
+                <append> $[proc] $[mus]</append>
+            </behavior>
+            <description>Apply ⟨proc⟩ to ⟨mus⟩ and all of the music it contains.</description>
+        </completion>
+        <completion string="noPageBreak">
+            <description>Forbid a page break. May be used at toplevel (i.e., between scores or markups), or inside a score.</description>
+        </completion>
+        <completion string="noPageTurn">
+            <description>Forbid a page turn. May be used at toplevel (i.e., between scores or markups), or inside a score.</description>
+        </completion>
+        <completion string="octaveCheck">
+            <behavior>
+                <append> $[pitch]</append>
+            </behavior>
+            <description>Octave check.</description>
+        </completion>
+        <completion string="offset">
+            <behavior>
+                <append> $[property] $[offsets] $[item]</append>
+            </behavior>
+            <description>Offset the default value of ⟨property⟩ of ⟨item⟩ by ⟨offsets⟩. If ⟨item⟩ is a string, the result is `\override` for the specified grob type. If ⟨item⟩ is a music expression, the result is the same music expression with an appropriate tweak applied.</description>
+        </completion>
+        <completion string="omit">
+            <behavior>
+                <append> $[item]</append>
+            </behavior>
+            <description>Set ⟨item⟩’s `stencil` property to `#f`, effectively omitting it without taking up space. If ⟨item⟩ is a symbol list of form `GrobName` or `Context.GrobName`, the result is an override for the grob name specified by it. If ⟨item⟩ is a music expression, the result is the same music expression with an appropriate tweak applied to it.</description>
+        </completion>
+        <completion string="once">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Set `once` to `#t` on all layout instruction events in ⟨music⟩.</description>
+        </completion>
+        <completion string="ottava">
+            <behavior>
+                <append> $[octave]</append>
+            </behavior>
+            <description>Set the octavation.</description>
+        </completion>
+        <completion string="overrideProperty">
+            <behavior>
+                <append> $[grob-property-path] $[value]</append>
+            </behavior>
+            <description>Set the grob property specified by ⟨grob-property-path⟩ to ⟨value⟩. ⟨grob-property-path⟩ is a symbol list of the form `Context.GrobName.property` or `GrobName.property`, possibly with subproperties given as well. As opposed to `\override` which overrides the context-dependent defaults with which a grob is created, this command uses `Output_property_engraver` at the grob acknowledge stage. This may be necessary for overriding values set after the initial grob creation.</description>
+        </completion>
+        <completion string="overrideTimeSignatureSettings">
+            <behavior>
+                <append> $[time-signature] $[base-moment] $[beat-structure] $[beam-exceptions]</append>
+            </behavior>
+            <description>Override `timeSignatureSettings` for time signatures of ⟨time-signature⟩ to have settings of ⟨base-moment⟩, ⟨beat-structure⟩, and ⟨beam-exceptions⟩.</description>
+        </completion>
+        <completion string="pageBreak">
+            <description>Force a page break. May be used at toplevel (i.e., between scores or markups), or inside a score.</description>
+        </completion>
+        <completion string="pageTurn">
+            <description>Force a page turn between two scores or top-level markups.</description>
+        </completion>
+        <completion string="palmMute">
+            <behavior>
+                <append> $[note]</append>
+            </behavior>
+            <description>Print ⟨note⟩ with a triangle-shaped note head.</description>
+        </completion>
+        <completion string="palmMuteOn">
+            <description>Set the default note head style to a triangle-shaped style.</description>
+        </completion>
+        <completion string="parallelMusic">
+            <behavior>
+                <append> $[voice-ids] $[music]</append>
+            </behavior>
+            <description>Define parallel music sequences, separated by ’|’ (bar check signs), and assign them to the identifiers provided in ⟨voice-ids⟩. ⟨voice-ids⟩: a list of music identifiers (symbols containing only letters) ⟨music⟩: a music sequence, containing BarChecks as limiting expressions. Example: The last bar checks in a sequence are not copied to the result in order to facilitate ending the last entry at non-bar boundaries.</description>
+        </completion>
+        <completion string="parenthesize">
+            <behavior>
+                <append> $[arg]</append>
+            </behavior>
+            <description>Tag ⟨arg⟩ to be parenthesized. ⟨arg⟩ may be either a music event or a grob path.</description>
+        </completion>
+        <completion string="partCombine">
+            <behavior>
+                <append> $[chord-range] $[part1] $[part2]</append>
+            </behavior>
+            <description>Take the music in ⟨part1⟩ and ⟨part2⟩ and return a music expression containing simultaneous voices, where ⟨part1⟩ and ⟨part2⟩ are combined into one voice where appropriate. Optional ⟨chord-range⟩ sets the distance in steps between notes that may be combined into a chord or unison.</description>
+        </completion>
+        <completion string="partCombineDown">
+            <behavior>
+                <append> $[chord-range] $[part1] $[part2]</append>
+            </behavior>
+            <description>Take the music in ⟨part1⟩ and ⟨part2⟩ and typeset so that they share a staff with stems directed downward.</description>
+        </completion>
+        <completion string="partCombineForce">
+            <behavior>
+                <append> $[type]</append>
+            </behavior>
+            <description>Override the part-combiner.</description>
+        </completion>
+        <completion string="partCombineUp">
+            <behavior>
+                <append> $[chord-range] $[part1] $[part2]</append>
+            </behavior>
+            <description>Take the music in ⟨part1⟩ and ⟨part2⟩ and typeset so that they share a staff with stems directed upward.</description>
+        </completion>
+        <completion string="partial">
+            <behavior>
+                <append> $[dur]</append>
+            </behavior>
+            <description>Make a partial measure.</description>
+        </completion>
+        <completion string="phrasingSlurDashPattern">
+            <behavior>
+                <append> $[dash-fraction] $[dash-period]</append>
+            </behavior>
+            <description>Set up a custom style of dash pattern for ⟨dash-fraction⟩ ratio of line to space repeated at ⟨dash-period⟩ interval for phrasing slurs.</description>
+        </completion>
+        <completion string="pitchedTrill">
+            <behavior>
+                <append> $[main-note] $[secondary-note]</append>
+            </behavior>
+            <description>Print a trill with ⟨main-note⟩ as the main note of the trill and print ⟨secondary-note⟩ as a stemless note head in parentheses.</description>
+        </completion>
+        <completion string="pointAndClickOff">
+            <description>Suppress generating extra code in final-format (e.g. pdf) files to point back to the lilypond source statement.</description>
+        </completion>
+        <completion string="pointAndClickOn">
+            <description>Enable generation of code in final-format (e.g. pdf) files to reference the originating lilypond source statement; this is helpful when developing a score but generates bigger final-format files.</description>
+        </completion>
+        <completion string="pointAndClickTypes">
+            <behavior>
+                <append> $[types]</append>
+            </behavior>
+            <description>Set a type or list of types (such as `#'note-event`) for which point-and-click info is generated.</description>
+        </completion>
+        <completion string="preBend">
+            <behavior>
+                <append> $[mus]</append>
+            </behavior>
+            <description>Sets the `'style` of a `BendSpanner` to `'pre-bend`.</description>
+        </completion>
+        <completion string="preBendHold">
+            <behavior>
+                <append> $[mus]</append>
+            </behavior>
+            <description>Sets the `'style` of a `BendSpanner` to `'pre-bend-hold`.</description>
+        </completion>
+        <completion string="propertyOverride">
+            <behavior>
+                <append> $[grob-property-path] $[value]</append>
+            </behavior>
+            <description>Set the grob property specified by ⟨grob-property-path⟩ to ⟨value⟩. ⟨grob-property-path⟩ is a symbol list of the form `Context.GrobName.property` or `GrobName.property`, possibly with subproperties given as well. This music function is mostly intended for use from Scheme as a substitute for the built-in `\override` command.</description>
+        </completion>
+        <completion string="propertyRevert">
+            <behavior>
+                <append> $[grob-property-path]</append>
+            </behavior>
+            <description>Revert the grob property specified by ⟨grob-property-path⟩ to its previous value. ⟨grob-property-path⟩ is a symbol list of the form `Context.GrobName.property` or `GrobName.property`, possibly with subproperties given as well. This music function is mostly intended for use from Scheme as a substitute for the built-in `\revert` command.</description>
+        </completion>
+        <completion string="propertySet">
+            <behavior>
+                <append> $[property-path] $[value]</append>
+            </behavior>
+            <description>Set the context property specified by ⟨property-path⟩ to ⟨value⟩. This music function is mostly intended for use from Scheme as a substitute for the built-in `\set` command.</description>
+        </completion>
+        <completion string="propertyTweak">
+            <behavior>
+                <append> $[prop] $[value] $[item]</append>
+            </behavior>
+            <description>Add a tweak to the following ⟨item⟩, usually music. This generally behaves like `\tweak` but will turn into an `\override` when ⟨item⟩ is a symbol list. In that case, ⟨item⟩ specifies the grob path to override. This is mainly useful when using `\propertyTweak` as as a component for building other functions like `\omit`. It is not the default behavior for `\tweak` since many input strings in `\lyricmode` can serve equally as music or as symbols which causes surprising behavior when tweaking lyrics using the less specific semantics of `\propertyTweak`. ⟨prop⟩ can contain additional elements in which case a nested property (inside of an alist) is tweaked.</description>
+        </completion>
+        <completion string="propertyUnset">
+            <behavior>
+                <append> $[property-path]</append>
+            </behavior>
+            <description>Unset the context property specified by ⟨property-path⟩. This music function is mostly intended for use from Scheme as a substitute for the built-in `\unset` command.</description>
+        </completion>
+        <completion string="pushToTag">
+            <behavior>
+                <append> $[tag] $[more] $[music]</append>
+            </behavior>
+            <description>Add ⟨more⟩ to the front of music tagged with ⟨tag⟩. A `post-event` can be added to the articulations of rhythmic events or chords; other expressions may be added to chords, sequential or simultaneous music.</description>
+        </completion>
+        <completion string="quoteDuring">
+            <behavior>
+                <append> $[what] $[main-music]</append>
+            </behavior>
+            <description>Indicate a section of music to be quoted. ⟨what⟩ indicates the name of the quoted voice, as specified in an `\addQuote` command. ⟨main-music⟩ is used to indicate the length of music to be quoted; usually contains spacers or multi-measure rests.</description>
+        </completion>
+        <completion string="raiseNote">
+            <behavior>
+                <append> $[num] $[music]</append>
+            </behavior>
+            <description>Raise a note of any chords in ⟨music⟩, in ⟨num⟩ position from below.</description>
+        </completion>
+        <completion string="reduceChords">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Reduce chords contained in ⟨music⟩ to single notes, intended mainly for reusing music in RhythmicStaff. Does not reduce parallel music.</description>
+        </completion>
+        <completion string="relative">
+            <behavior>
+                <append> $[pitch] $[music]</append>
+            </behavior>
+            <description>Make ⟨music⟩ relative to ⟨pitch⟩. If ⟨pitch⟩ is omitted, the first note in ⟨music⟩ is given in absolute pitch.</description>
+        </completion>
+        <completion string="removeWithTag">
+            <behavior>
+                <append> $[tags] $[music]</append>
+            </behavior>
+            <description>Remove elements of ⟨music⟩ that are tagged with one of the tags in ⟨tags⟩. ⟨tags⟩ may be either a single symbol or a list of symbols.</description>
+        </completion>
+        <completion string="resetRelativeOctave">
+            <behavior>
+                <append> $[pitch]</append>
+            </behavior>
+            <description>Set the octave inside a \relative section.</description>
+        </completion>
+        <completion string="responsum">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+        </completion>
+        <completion string="retrograde">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Return ⟨music⟩ in reverse order.</description>
+        </completion>
+        <completion string="revertTimeSignatureSettings">
+            <behavior>
+                <append> $[time-signature]</append>
+            </behavior>
+            <description>Revert `timeSignatureSettings` for time signatures of ⟨time-signature⟩.</description>
+        </completion>
+        <completion string="rightHandFinger">
+            <behavior>
+                <append> $[finger]</append>
+            </behavior>
+            <description>Apply ⟨finger⟩ as a fingering indication.</description>
+        </completion>
+        <completion string="scaleDurations">
+            <behavior>
+                <append> $[fraction] $[music]</append>
+            </behavior>
+            <description>Multiply the duration of events in ⟨music⟩ by ⟨fraction⟩.</description>
+        </completion>
+        <completion string="sectionLabel">
+            <behavior>
+                <append> $[text]</append>
+            </behavior>
+            <description>Mark the beginning of a named passage, e.g. . This is well suited for use at a section division created with `\section`, but it does not imply `\section` and may be used alone.</description>
+        </completion>
+        <completion string="segnoMark">
+            <behavior>
+                <append> $[num]</append>
+            </behavior>
+            <description>Create a segno mark (or bar line, if the `segnoStyle` context property is `'bar-line`). ⟨num⟩ may be 1 for the first segno, 2 for the second, etc., or it may be `\default` to use the next number in sequence automatically.</description>
+        </completion>
+        <completion string="settingsFrom">
+            <behavior>
+                <append> $[ctx] $[music]</append>
+            </behavior>
+            <description>Take the layout instruction events from ⟨music⟩, optionally restricted to those applying to context type ⟨ctx⟩, and return a context modification duplicating their effect.</description>
+        </completion>
+        <completion string="shape">
+            <behavior>
+                <append> $[offsets] $[item]</append>
+            </behavior>
+            <description>Offset control-points of ⟨item⟩ by ⟨offsets⟩. The argument is a list of number pairs or list of such lists. Each element of a pair represents an offset to one of the coordinates of a control-point. The y-coordinate of each number pair is scaled by staff space. If ⟨item⟩ is a string, the result is `\once\override` for the specified grob type. If ⟨item⟩ is a music expression, the result is the same music expression with an appropriate tweak applied.</description>
+        </completion>
+        <completion string="shiftDurations">
+            <behavior>
+                <append> $[dur] $[dots] $[arg]</append>
+            </behavior>
+            <description>Change the duration of ⟨arg⟩ by adding ⟨dur⟩ to the `durlog` of ⟨arg⟩ and ⟨dots⟩ to the `dots` of ⟨arg⟩.</description>
+        </completion>
+        <completion string="single">
+            <behavior>
+                <append> $[overrides] $[music]</append>
+            </behavior>
+            <description>Convert ⟨overrides⟩ to tweaks and apply them to ⟨music⟩. This does not convert `\revert`, `\set` or `\unset`.</description>
+        </completion>
+        <completion string="skip">
+            <behavior>
+                <append> $[arg]</append>
+            </behavior>
+            <description>Skip over ⟨arg⟩, which may be music or a duration.</description>
+        </completion>
+        <completion string="slashedGrace">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Create slashed graces (slashes through stems, but no slur) from the following music expression</description>
+        </completion>
+        <completion string="slurDashPattern">
+            <behavior>
+                <append> $[dash-fraction] $[dash-period]</append>
+            </behavior>
+            <description>Set up a custom style of dash pattern for ⟨dash-fraction⟩ ratio of line to space repeated at ⟨dash-period⟩ interval for slurs.</description>
+        </completion>
+        <completion string="staffHighlight">
+            <behavior>
+                <append> $[color]</append>
+            </behavior>
+            <description>Start a highlight with the specified color.</description>
+        </completion>
+        <completion string="storePredefinedDiagram">
+            <behavior>
+                <append> $[fretboard-table] $[chord] $[tuning] $[diagram-definition]</append>
+            </behavior>
+            <description>Add predefined fret diagram defined by ⟨diagram-definition⟩ for the chord pitches ⟨chord⟩ and the stringTuning ⟨tuning⟩.</description>
+        </completion>
+        <completion string="stringTuning">
+            <behavior>
+                <append> $[chord]</append>
+            </behavior>
+            <description>Convert ⟨chord⟩ to a string tuning. ⟨chord⟩ must be in absolute pitches and should have the highest string number (generally the lowest pitch) first.</description>
+        </completion>
+        <completion string="styledNoteHeads">
+            <behavior>
+                <append> $[style] $[heads] $[music]</append>
+            </behavior>
+            <description>Set ⟨heads⟩ in ⟨music⟩ to ⟨style⟩.</description>
+        </completion>
+        <completion string="tabChordRepeats">
+            <behavior>
+                <append> $[event-types] $[music]</append>
+            </behavior>
+            <description>Walk through ⟨music⟩ putting the notes, fingerings and string numbers of the previous chord into repeat chords, as well as an optional list of ⟨event-types⟩ such as `#'(articulation-event)`.</description>
+        </completion>
+        <completion string="tabChordRepetition">
+            <description>Include the string and fingering information in a chord repetition. This function is deprecated; try using `\tabChordRepeats` instead.</description>
+        </completion>
+        <completion string="tag">
+            <behavior>
+                <append> $[tags] $[music]</append>
+            </behavior>
+            <description>Tag the following ⟨music⟩ with ⟨tags⟩ and return the result, by adding the single symbol or symbol list ⟨tags⟩ to the `tags` property of ⟨music⟩.</description>
+        </completion>
+        <completion string="tagGroup">
+            <behavior>
+                <append> $[tags]</append>
+            </behavior>
+            <description>Define a tag group comprising the symbols in the symbol list ⟨tags⟩. Tag groups must not overlap.</description>
+        </completion>
+        <completion string="temporary">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Make any `\override` in ⟨music⟩ replace an existing grob property value only temporarily, restoring the old value when a corresponding `\revert` is executed. This is achieved by clearing the `pop-first` property normally set on `\override`s. An `\override`//`\revert` sequence created by using `\temporary` and `\undo` on the same music containing overrides will cancel out perfectly or cause a warning. Non-property-related music is ignored, warnings are generated for any property-changing music that isn’t an `\override`.</description>
+        </completion>
+        <completion string="textEndMark">
+            <behavior>
+                <append> $[text]</append>
+            </behavior>
+        </completion>
+        <completion string="textMark">
+            <behavior>
+                <append> $[text]</append>
+            </behavior>
+        </completion>
+        <completion string="tieDashPattern">
+            <behavior>
+                <append> $[dash-fraction] $[dash-period]</append>
+            </behavior>
+            <description>Set up a custom style of dash pattern for ⟨dash-fraction⟩ ratio of line to space repeated at ⟨dash-period⟩ interval for ties.</description>
+        </completion>
+        <completion string="time">
+            <behavior>
+                <append> $[beat-structure] $[fraction]</append>
+            </behavior>
+            <description>Set ⟨fraction⟩ as time signature, with optional number list ⟨beat-structure⟩ before it.</description>
+        </completion>
+        <completion string="times">
+            <behavior>
+                <append> $[fraction] $[music]</append>
+            </behavior>
+            <description>Scale ⟨music⟩ in time by ⟨fraction⟩.</description>
+        </completion>
+        <completion string="tocItem">
+            <behavior>
+                <append> $[label] $[text]</append>
+            </behavior>
+            <description>Add a line to the table of contents, using the `tocItemMarkup` paper variable markup and assigning it to ⟨label⟩ if one is provided. If a hierarchy of labels is given, make the current item a child of the corresponding objects.</description>
+        </completion>
+        <completion string="transpose">
+            <behavior>
+                <append> $[from] $[to] $[music]</append>
+            </behavior>
+            <description>Transpose ⟨music⟩ from pitch ⟨from⟩ to pitch ⟨to⟩.</description>
+        </completion>
+        <completion string="transposedCueDuring">
+            <behavior>
+                <append> $[what] $[dir] $[pitch] $[main-music]</append>
+            </behavior>
+            <description>Insert notes from the part ⟨what⟩ into a voice called `cue`, using the transposition defined by ⟨pitch⟩. This happens simultaneously with ⟨main-music⟩, which is usually a rest. The argument ⟨dir⟩ determines whether the cue notes should be notated as a first or second voice.</description>
+        </completion>
+        <completion string="transposition">
+            <behavior>
+                <append> $[pitch]</append>
+            </behavior>
+            <description>Set instrument transposition</description>
+        </completion>
+        <completion string="tuplet">
+            <behavior>
+                <append> $[ratio] $[tuplet-span] $[music]</append>
+            </behavior>
+            <description>Scale the given ⟨music⟩ to tuplets. ⟨ratio⟩ is a fraction that specifies how many notes are played in place of the nominal value: it will be `3/2` for triplets, namely three notes being played in place of two. If the optional duration ⟨tuplet-span⟩ is specified, it is used instead of `tupletSpannerDuration` for grouping the tuplets. For example, `\tuplet 3/2 4 { c8 c c c c c }` will result in two groups of three tuplets, each group lasting for a quarter note.</description>
+        </completion>
+        <completion string="tupletSpan">
+            <behavior>
+                <append> $[tuplet-span]</append>
+            </behavior>
+            <description>Set `tupletSpannerDuration`, the length into which `\tuplet` without an explicit `tuplet-span` argument of its own will group its tuplets, to the duration ⟨tuplet-span⟩. To revert to the default of not subdividing the contents of a `\tuplet` command without explicit `tuplet-span`, use `\tupletSpan \default`</description>
+        </completion>
+        <completion string="tweak">
+            <behavior>
+                <append> $[prop] $[value] $[music]</append>
+            </behavior>
+            <description>Add a tweak to the following ⟨music⟩. Layout objects created by ⟨music⟩ get their property ⟨prop⟩ set to ⟨value⟩. If ⟨prop⟩ has the form `Grob.property`, like with `\tweak Accidental.color #red cis'` an indirectly created grob (`Accidental` is caused by `NoteHead`) can be tweaked; otherwise only directly created grobs are affected. ⟨prop⟩ can contain additional elements in which case a nested property (inside of an alist) is tweaked. If ⟨music⟩ is an `event-chord`, every contained `rhythmic-event` is tweaked instead.</description>
+        </completion>
+        <completion string="undo">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Convert `\override` and `\set` in ⟨music⟩ to `\revert` and `\unset`, respectively. Any reverts and unsets already in ⟨music⟩ cause a warning. Non-property-related music is ignored.</description>
+        </completion>
+        <completion string="unfolded">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+            <description>Mask ⟨music⟩ until the innermost enclosing repeat is unfolded.</description>
+        </completion>
+        <completion string="unfoldRepeats">
+            <behavior>
+                <append> $[types] $[music]</append>
+            </behavior>
+            <description>Force `\repeat volta`, `\repeat tremolo` or `\repeat percent` commands in ⟨music⟩ to be interpreted as `\repeat unfold`, if specified in the optional symbol-list ⟨types⟩. The default for ⟨types⟩ is an empty list, which will force any of those commands in ⟨music⟩ to be interpreted as `\repeat unfold`. Possible entries are `volta`, `tremolo` or `percent`. Multiple entries are possible.</description>
+        </completion>
+        <completion string="versus">
+            <behavior>
+                <append> $[music]</append>
+            </behavior>
+        </completion>
+        <completion string="voices">
+            <behavior>
+                <append> $[ids] $[music]</append>
+            </behavior>
+            <description>Take the given key list of numbers (indicating the use of `\voiceOne`<punct>…</punct>) or symbols (indicating voice names, typically converted from strings by argument list processing) and assign the following `\\`-separated music to contexts according to that list. Named rather than numbered contexts can be used for continuing one voice (for the sake of spanners and lyrics), usually requiring a `\voiceOne`-style override at the beginning of the passage and a `\oneVoice` override at its end. The default `&lt;&lt; … \\ … \\ … &gt;&gt;` construct would correspond to `\voices 1,2,3 &lt;&lt; … \\ … \\ … &gt;&gt;`</description>
+        </completion>
+        <completion string="void">
+            <behavior>
+                <append> $[arg]</append>
+            </behavior>
+            <description>Accept a scheme argument, return a void expression. Use this if you want to have a scheme expression evaluated because of its side-effects, but its value ignored.</description>
+        </completion>
+        <completion string="volta">
+            <behavior>
+                <append> $[volta-numbers] $[music]</append>
+            </behavior>
+            <description>Mark ⟨music⟩ as being limited to the volte given in ⟨volta-numbers⟩ when the innermost enclosing repeat is unfolded. Volta number begins at 1 and increases by 1 with each repetition.</description>
+        </completion>
+        <completion string="vshape">
+            <behavior>
+                <append> $[offsets] $[item]</append>
+            </behavior>
+            <description>Like `\shape`, but additionally show control points for ease of tweaking.</description>
+        </completion>
+        <completion string="withMusicProperty">
+            <behavior>
+                <append> $[sym] $[val] $[music]</append>
+            </behavior>
+            <description>Set ⟨sym⟩ to ⟨val⟩ in ⟨music⟩.</description>
+        </completion>
+        <completion string="xNote">
+            <behavior>
+                <append> $[note]</append>
+            </behavior>
+            <description>Print ⟨note⟩ with a cross-shaped note head.</description>
+        </completion>
+        <completion string="=">
+            <behavior>
+                <append> $[id] $[event]</append>
+            </behavior>
+            <description>This sets the `spanner-id` property of the following ⟨event⟩ to the given ⟨id⟩ (non-negative integer or symbol). This can be used to tell LilyPond how to connect overlapping or parallel slurs or phrasing slurs within a single `Voice`.</description>
+        </completion>
+    </set>
+</completions>
