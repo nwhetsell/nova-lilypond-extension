@@ -1,7 +1,7 @@
 {
     "identifier": "nathan_whetsell.LilyPond",
     "name": "LilyPond",
-    "author": "Nathan Whetsell",
+    "organization": "Nathan Whetsell",
     "description": "LilyPond language support.",
     "version": "0.1",
     "categories": ["issues", "languages"],
