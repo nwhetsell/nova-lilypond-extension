@@ -25,6 +25,8 @@ make_parser () {
   LDFLAGS="$flags -F$Nova_path/Contents/Frameworks/ -framework SyntaxKit -rpath @loader_path/../Frameworks" \
   make --environment-overrides
 
+  codesign --sign '-' "libtree-sitter-$2.dylib"
+
   mv "libtree-sitter-$2.dylib" LilyPond.novaextension/Syntaxes
   rm "$1/src/parser.o"
 }
