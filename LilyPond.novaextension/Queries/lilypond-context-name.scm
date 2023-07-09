@@ -13,7 +13,7 @@
     (#match? @punctuation "^=$")
   )
   .
-  (symbol) @result
-  (#prefix! @result " “")
-  (#append! @result "”")
+  [(string) (symbol)] @result
+  .
+  (#prefix! @result " ")
 )

@@ -44,13 +44,13 @@
 )
 (escaped_word) @identifier.variable
 
+(quoted_identifier
+  "\"" @bracket
+)
+
 (
   (symbol) @keyword
   (#match? @keyword "^q$")
-)
-
-(property_expression
-  "." @punctuation.delimiter
 )
 
 [
@@ -81,5 +81,4 @@
   "#{" "#}"
 ] @bracket
 
-("#" @processing)
-
+(embedded_scheme_prefix) @processing
