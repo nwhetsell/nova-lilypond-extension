@@ -54,10 +54,10 @@
     </injection>
 
     <tree-sitter language="lilypond">
-        <highlights path="lilypond-built-in-highlights.scm" />
-        <highlights path="lilypond-highlights.scm" />
-        <injections path="lilypond-injections.scm" />
-        <folds path="lilypond-folds.scm" />
-        <symbols path="lilypond-symbols.scm" />
+        <highlights path="lilypond/highlights-builtins.scm" />
+        <highlights path="lilypond/highlights.scm" />
+        <injections path="lilypond/injections.scm" />
+        <folds path="lilypond/folds.scm" />
+        <symbols path="lilypond/symbols.scm" />
     </tree-sitter>
 </syntax>

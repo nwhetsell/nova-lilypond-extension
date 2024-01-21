@@ -38,10 +38,10 @@
     </surrounding-pairs>
 
     <tree-sitter language="lilypond_scheme">
-        <highlights path="scheme-lilypond-built-in-highlights.scm" />
-        <highlights path="scheme-built-in-highlights.scm" />
-        <highlights path="scheme-highlights.scm" />
-        <injections path="scheme-injections.scm" />
-        <folds path="scheme-folds.scm" />
+        <highlights path="lilypond_scheme/highlights-lilypond-builtins.scm" />
+        <highlights path="lilypond_scheme/highlights-builtins.scm" />
+        <highlights path="lilypond_scheme/highlights.scm" />
+        <injections path="lilypond_scheme/injections.scm" />
+        <folds path="lilypond_scheme/folds.scm" />
     </tree-sitter>
 </syntax>

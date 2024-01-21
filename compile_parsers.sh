@@ -31,5 +31,8 @@ make_parser () {
   rm "$1/src/parser.o"
 }
 
+cp tree-sitter-lilypond/queries/*.scm LilyPond.novaextension/Queries/lilypond
 make_parser tree-sitter-lilypond lilypond
+
+cp tree-sitter-lilypond/tree-sitter-lilypond-scheme/queries/*.scm LilyPond.novaextension/Queries/lilypond_scheme
 make_parser tree-sitter-lilypond/tree-sitter-lilypond-scheme lilypond_scheme
