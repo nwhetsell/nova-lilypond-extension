@@ -29,7 +29,10 @@
   .
 )
 
-(escaped_word) @identifier.variable
+(
+  (escaped_word) @identifier.variable
+  (#not-match? @identifier.variable "^\\\\(?:include|maininput|version)$") ; This is needed for Panic Nova
+)
 (
   (escaped_word) @processing
   (#match? @processing "^\\\\(?:include|maininput|version)$") ; These are handled directly by LilyPond’s lexer.
@@ -54,6 +57,7 @@
 
 [
   (fraction)
+  (decimal_number)
   (unsigned_integer)
 ] @value.number
 
