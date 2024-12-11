@@ -3,7 +3,7 @@
     "name": "LilyPond",
     "organization": "Nathan Whetsell",
     "description": "LilyPond language support.",
-    "version": "0.6",
+    "version": "0.7",
     "categories": ["issues", "languages"],
     "license": "MIT",
     "repository": "https://github.com/nwhetsell/nova-lilypond-extension",

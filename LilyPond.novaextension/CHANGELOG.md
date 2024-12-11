@@ -1,3 +1,7 @@
+# Version 0.7
+
+Update LilyPond grammar
+
 # Version 0.6
 
 Update LilyPond grammar
