@@ -15,5 +15,5 @@
   .
   [(symbol) (string)] @name)
   (#set! role struct)
-  (#set! displayname.query "lilypond-context-name.scm")
+  (#set! displayname.query "lilypond/context-name.scm")
 ) @subtree @displayname.target
