@@ -9,6 +9,7 @@ Nova_path=${1:-/Applications/Nova.app}
 make_parser () {
   pushd "$1"
   npm install
+  npm install tree-sitter-cli@"<0.25.0"
   ./node_modules/tree-sitter-cli/tree-sitter generate
   popd
 
