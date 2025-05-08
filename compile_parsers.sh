@@ -6,13 +6,16 @@ set -eu
 
 Nova_path=${1:-/Applications/Nova.app}
 
-make_parser () {
-  pushd "$1"
-  npm install
-  npm install tree-sitter-cli@"<0.25.0"
-  ./node_modules/tree-sitter-cli/tree-sitter generate
-  popd
+cp tree-sitter-lilypond/queries/highlights-builtins.scm \
+   tree-sitter-lilypond/queries/highlights.scm \
+   tree-sitter-lilypond/queries/injections.scm \
+   LilyPond.novaextension/Queries/lilypond
 
+cp tree-sitter-lilypond/queries/highlights-scheme-builtins.scm LilyPond.novaextension/Queries/lilypond_scheme/highlights-builtins.scm
+cp tree-sitter-lilypond/queries/highlights-scheme-lilypond-builtins.scm LilyPond.novaextension/Queries/lilypond_scheme/highlights-lilypond-builtins.scm
+cp tree-sitter-lilypond/queries/highlights-scheme.scm LilyPond.novaextension/Queries/lilypond_scheme/highlights.scm
+
+make_parser () {
   build_path="$1/build"
   mkdir -p "$build_path"
 
@@ -32,8 +35,5 @@ make_parser () {
   rm "$1/src/parser.o"
 }
 
-cp tree-sitter-lilypond/queries/*.scm LilyPond.novaextension/Queries/lilypond
-make_parser tree-sitter-lilypond lilypond
-
-cp tree-sitter-lilypond/tree-sitter-lilypond-scheme/queries/*.scm LilyPond.novaextension/Queries/lilypond_scheme
-make_parser tree-sitter-lilypond/tree-sitter-lilypond-scheme lilypond_scheme
+make_parser tree-sitter-lilypond/lilypond lilypond
+make_parser tree-sitter-lilypond/lilypond-scheme lilypond_scheme
