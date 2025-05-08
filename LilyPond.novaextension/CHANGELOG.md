@@ -1,3 +1,7 @@
+# Version 0.9
+
+* Update LilyPond grammar
+
 # Version 0.8
 
 * Use correct query file path
